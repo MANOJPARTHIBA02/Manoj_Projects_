@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Services - Citizen AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7f9;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px 50px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .services-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .services-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 1.3rem;
+      color: #27ae60;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      background: #27ae60;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn a:hover {
+      background: #219150;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Services</h1>
+     <!-- Back to Home Button -->
+    <div style="margin-bottom: 15px;">
+        <a href="{{ url_for('base') }}">
+            <button style="background-color:#007BFF; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;margin-top: 8px;">
+                ⬅ Back to Home
+            </button>
+        </a>
+    </div>
+  </header>
+
+  <section class="services-section">
+    <h2>What We Offer</h2>
+    <div class="service-cards">
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/artificial-intelligence.png" alt="AI Chat">
+        <h3>AI Civil Assistant</h3>
+        <p>Ask questions about civil services and get instant AI-powered responses tailored to your needs.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/feedback.png" alt="Feedback">
+        <h3>Feedback System</h3>
+        <p>Provide feedback on services and get real-time sentiment analysis with actionable insights.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/alarm.png" alt="Concerns">
+        <h3>Citizen Concerns</h3>
+        <p>Report your issues or concerns quickly and ensure they are logged into the system effectively.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/combo-chart.png" alt="Dashboard">
+        <h3>Dashboard Insights</h3>
+        <p>View reports, monitor citizen concerns, and analyze service performance at a glance.</p>
+      </div>
+    </div>
+
+    
+  </section>
+</body>
+</html>

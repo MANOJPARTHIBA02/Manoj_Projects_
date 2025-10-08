@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CitizenAI - Home</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(44, 62, 80, 0.9);
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;   /* stack title & menu */
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px; /* space between title & menu */
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: #fdfdfd;
+      transition: width 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #1abc9c;
+    }
+
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      gap: 30px;
+    }
+
+    .hero-text {
+      flex: 1;
+      animation: fadeInLeft 1s ease;
+    }
+
+    .hero-text h2 {
+      font-size: 43px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .hero-text p {
+      font-size: 21px;
+      margin-bottom: 25px;
+      color: #ddd;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #27ae60;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+      background: #1abc9c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      animation: fadeInRight 1s ease;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h2 {
+        font-size: 32px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Welcome to CitizenAI</h1>
+    <ul>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('services') }}">Services</a></li>
+      <li><a href="{{ url_for('chat') }}">Chat</a></li>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      {% if 'user' in session %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>Empowering Citizens Through AI</h2>
+      <p>
+        CitizenAI is your intelligent assistant for civic engagement. From accessing services 
+        to sharing feedback, our AI-powered platform helps citizens and governments 
+        communicate better—anytime, anywhere.
+      </p>
+      {% if 'user' in session %}
+        <a href="{{ url_for('dashboard') }}" class="btn">Go to Dashboard</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+      {% endif %}
+      <p>Join us in building a smarter, more responsive civic environment.</p>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='image/Background.jpeg') }}" alt="CitizenAI">
+    </div>
+  </div>
+</body>
+</html>

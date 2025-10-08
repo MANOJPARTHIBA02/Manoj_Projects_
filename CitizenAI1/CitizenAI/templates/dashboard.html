@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Insights Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .positive { border-left: 8px solid #2ecc71; }
+        .neutral { border-left: 8px solid #f1c40f; }
+        .negative { border-left: 8px solid #e74c3c; }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .issues {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .issues h2 {
+            margin-bottom: 15px;
+        }
+
+        .issue-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .issue-list li {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .issue-list li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Citizen Insights Dashboard</h1>
+        <p>Quick overview of citizen feedback and reported issues</p>
+        <div style="margin-bottom: 15px;">
+        <a href="{{ url_for('base') }}">
+            <button style="background-color:#007BFF; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+                ⬅ Back to Home
+            </button>
+        </a>
+    </div>
+    </header>
+
+
+    <div class="container">
+        <!-- Sentiment Summary -->
+        <h2>Weekly Sentiment Analysis</h2>
+        <div class="cards">
+            <div class="card positive">
+                <h3>Positive</h3>
+                <p>{{ sentiment_counts.positive }}</p>
+            </div>
+            <div class="card neutral">
+                <h3>Neutral</h3>
+                <p>{{ sentiment_counts.neutral }}</p>
+            </div>
+            <div class="card negative">
+                <h3>Negative</h3>
+                <p>{{ sentiment_counts.negative }}</p>
+            </div>
+        </div>
+
+        <!-- Recent Issues -->
+        <div class="issues">
+            <h2>Recent Citizen Issues</h2>
+            {% if recent_issues %}
+                <ul class="issue-list">
+                    {% for issue in recent_issues %}
+                        <li>{{ issue }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No issues reported yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 MANOJ</p>
+    </footer>
+</body>
+</html>

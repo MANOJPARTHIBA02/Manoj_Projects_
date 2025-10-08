@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About CitizenAI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url("{{ url_for('static', filename='image/Background.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      
+      margin: auto;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    a {
+      color: #ffd700;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin: 10px 0;
+      font-size: 21px;
+      line-height: 1.6;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #ffd700;
+      font-size: 24px;
+    }
+
+    .emoji {
+      font-size: 28px;
+      margin-right: 10px;
+    }
+    header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    .section-title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+    footer {
+            text-align: center;
+            padding: 15px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>About CitizenAI</h1>
+        <div style="margin-bottom: 15px;">
+        <a href="{{ url_for('base') }}">
+            <button style="background-color:#007BFF; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+                ⬅ Back to Home
+            </button>
+        </a>
+    </div>
+    </header>
+
+  <div class="container">
+    <p><strong>CitizenAI:</strong> CitizenAI is a platform designed to improve how governments and citizens interact, 
+      using artificial intelligence (AI) to make public services smarter, faster, and more accessible.</p>
+    <p>Our mission is to simplify civic interactions, encourage transparency, and foster trust by providing a smart, 
+      responsive, and accessible interface for every citizen. Whether you're submitting feedback, accessing government 
+      services, or exploring insights—CitizenAI is your bridge to a smarter society.</p>
+
+    <h2><span class="emoji">🚀</span> In Simple Terms:</h2>
+    <p>Think of CitizenAI as a digital assistant for public service—just like a chatbot or an AI helpdesk, 
+      but for government-related tasks like:</p>
+    <ul>
+      <li>Asking questions about public services</li>
+      <li>Reporting issues (like potholes, pollution, or delays)</li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h2><span class="emoji">🧠</span> Key Features:</h2>
+    <ul>
+      <li><strong>Chat Assistant:</strong> Lets citizens ask questions and get AI-powered responses.</li>
+      <li><strong>Sentiment Analysis:</strong> Understands whether feedback is positive, negative, or neutral.</li>
+      <li><strong>Concern Reporting:</strong> Citizens can submit issues, and the system tracks or logs them.</li>
+      <li><strong>IBM Granite Models:</strong> Powerful AI models from IBM that understand and generate human-like responses.</li>
+    </ul>
+
+    <h2><span class="emoji">🏛️</span> Why It's Useful:</h2>
+    <ul>
+      <li>Makes government services more transparent, efficient, and citizen-friendly.</li>
+      <li>Saves time by automating responses to common queries.</li>
+      <li>Improves civic engagement and trust between the government and people.</li>
+    </ul>
+  </div>
+  <footer>
+        <p>© 2025 MANOJ</p>
+    </footer>
+</body>
+</html>

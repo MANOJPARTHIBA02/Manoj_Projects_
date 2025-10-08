@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Civil Services Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9f0f7;
+            color: #333;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1{
+            margin: 10px 0;
+            color: #ffffff;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #118018;
+            color: white;
+            border: none;
+            size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Chat Section */
+        .chat-section {
+            margin: 30px auto;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>AI Civil Services Assistant</h1>
+
+    <!-- Back to Home Button -->
+    <div style="margin-bottom: 15px;">
+        <a href="{{ url_for('base') }}">
+            <button style="background-color:#007BFF; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+                ⬅ Back to Home
+            </button>
+        </a>
+    </div>
+    </header>
+
+    <!-- Chat form -->
+    <section class="chat-section">
+        <div class="card"> 
+            <h2>Ask a Question</h2>
+            <form action="/ask" method="POST">
+                <input type="text" name="user_input" placeholder="Ask about Civil Services..." required>
+                <button type="submit">Ask</button>
+            </form>
+        
+    {% if question %}
+        <p><b>You:</b> {{ question }}</p>
+    {% endif %}
+    {% if response %}
+        <p><b>AI:</b> {{ response }}</p>
+    {% endif %}
+    <hr>
+        </div>
+    </section>
+        
+    <!-- Feedback form -->
+     <section class="chat-section">
+        <div class="card"> 
+    <h2>Give Feedback</h2>
+    <form action="/feedback" method="POST">
+        <input type="text" name="feedback" placeholder="Give feedback..." required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if feedback %}
+        <p><b>Your Feedback:</b> {{ feedback }}</p>
+    {% endif %}
+    {% if sentiment %}
+        <p><b>Sentiment:</b> {{ sentiment }}</p>
+    {% endif %}
+
+    <hr>
+      </div>
+    </section>
+    <!-- Concern reporting form -->
+     <section class="chat-section">
+        <div class="card"> 
+    <h2>Report a Concern</h2>
+    <form action="/concern" method="POST">
+        <input type="text" name="concern" placeholder="Report your concern..." required>
+        <button type="submit">Report</button>
+    </form>
+
+    {% if concern %}
+        <p><b>Your Concern:</b> {{ concern }}</p>
+    {% endif %}
+    {% if concern_response %}
+        <p><b>System:</b> {{ concern_response }}</p>
+    {% endif %}
+    </div>
+    </section>
+    <footer>
+        <p>© 2025 MANOJ</p>
+    </footer>
+</body>
+</html>
