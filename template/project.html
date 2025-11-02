@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects – Manoj Parthiban</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/certificate.css" />
+  <style>
+:root {
+      --bg-color: #f5f5f5;
+      --text-color: #222;
+      --card-bg: #fff;
+      --accent: #5e3bee;
+    }
+
+body.dark {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: #1e1e1e;
+      --accent: #5e3bee;
+    }
+header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 10px;
+      background: var(--card-bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+.name {
+  font-weight: 700;
+  padding-right: 0px;
+  font-size: 22px;
+  color: #5e3bee;
+}
+body{
+  max-width: 1200px;
+}
+
+.container {
+   max-width: 1000px;
+   margin: 40px auto;
+   padding: 20px;
+ }
+ .project1-card {
+   background: var(--card-bg);
+   border-radius: 12px;
+   padding: 25px;
+   margin-bottom: 30px;
+   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+   transition: transform 0.3s;
+ }
+ .project1-card:hover {
+   transform: translateY(-5px);
+ }
+ .project1-card h2 {
+   color: var(--accent);
+   margin-bottom: 10px;
+ }
+ .project1-card p {
+   line-height: 1.6;
+   font-size: 16px;
+ }
+ .tags {
+   margin-top: 15px;
+ }
+ .tag {
+   display: inline-block;
+   background: var(--accent);
+   color: white;
+   border-radius: 20px;
+   padding: 5px 12px;
+   margin-right: 8px;
+   font-size: 13px;
+ }
+ footer {
+   text-align: center;
+   padding: 15px;
+   font-size: 14px;
+   color: var(--text-color);
+   border-top: 1px solid rgba(0,0,0,0.1);
+ }
+ /* 🧭 Navigation */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #5e3bee;
+}
+
+/* 🍔 Hamburger Menu (hidden by default) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #222;
+}
+/* ⚙️ Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 12px 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: 10px;
+  }
+
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav ul.show {
+    display: flex;
+  }
+
+  .nav ul li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  .nav a {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    width: 100%;
+  }
+
+  .nav a:hover {
+    background: #f0f0f0;
+    color: #5e3bee;
+  }
+}
+
+/* 📱 Extra small screens fix (below 400px) */
+@media (max-width: 400px) {
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    font-size: 24px;
+  }
+
+  .nav ul {
+    top: 55px;
+    font-size: 0.9rem;
+  }
+
+  .nav ul li {
+    padding: 8px 0;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <<div class="name">Projects</div>
+    <nav class="nav">
+      <ul id="nav-links">
+        <li><a href="../template/index.html#home">Home</a></li>
+        <li><a href="../template/index.html#skills">Skills</a></li>
+        <li><a href="../template/project.html">Project's</a></li>
+        <li><a href="../template/index.html#services">Internships</a></li>
+        <li><a href="../template/cerificate.html">Certificate's</a></li>
+        <li><a href="../template/index.html#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Face Recognition Attendance System -->
+    <div class="project1-card">
+      <h2><i class="fas fa-user-check"></i> Face Recognition Attendance System</h2>
+      <p>
+        This project is a smart attendance system built using <strong>Python, Flask, OpenCV, and SQLite3</strong>. 
+        It enables real-time face recognition for marking employee or student attendance automatically. 
+        The system includes separate modules for registration (with photo capture), daily attendance via 
+        face or ID, and monthly report generation with filters for morning and evening sessions. 
+      </p>
+      <p>
+        The project also supports exporting attendance reports and features a user-friendly web dashboard for administrators.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">SQLite3</span>
+      </div>
+    </div>
+
+    <!-- Citizen AI -->
+    <div class="project1-card">
+      <h2><i class="fas fa-robot"></i> Citizen AI – Smart Complaint Management System</h2>
+      <p>
+        Citizen AI is a civic technology project designed to help citizens report and track local issues such as 
+        garbage, streetlight faults, and road damage using an intelligent chatbot system. 
+        The chatbot uses <strong>AI and Natural Language Processing (NLP)</strong> to understand user queries 
+        and automatically categorize complaints.
+      </p>
+      <p>
+        The platform provides a web dashboard for local authorities to view and resolve complaints, 
+        improving transparency and response time. It also includes a priority-based alert system to 
+        handle urgent public issues efficiently.
+      </p>
+      <div class="tags">
+        <span class="tag">AI</span>
+        <span class="tag">Chatbot</span>
+        <span class="tag">Flask</span>
+        <span class="tag">NLP</span>
+      </div>
+    </div>
+    <!-- Ufill Academy Website -->
+    <div class="project1-card" id="Ufill">
+      <h2><i class="fas fa-user-check"></i> U-fill Academy</h2>
+      <p>
+        This is a team-based ongoing project aimed at developing a fully responsive
+        and interactive website for U Fill Academy, an educational institution offering AI and technical training programs. The project focuses on creating a clean,
+        modern UI with smooth navigation and dynamic content presentation to improve the student enrollment experience. It includes modern sections like Home, About, Courses, Gallery, Achievements, and Contact.
+      </p>
+      <p>
+        As part of the frontend development team, I am responsible for building responsive page layouts, implementing animations, and integrating features like dark/light mode and interactive forms. The project is currently under active development and will include both frontend and backend integration upon completion.
+      </p>
+      <div class="tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Javascript</span>
+        <span class="tag">Boostrap</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>© 2025 Manoj Parthiban | All Rights Reserved</footer>
+<script>
+  // 🍔 Toggle Menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+<script src="../script/darkmode.js"></script>
+</body>
+</html>

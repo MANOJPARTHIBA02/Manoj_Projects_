@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Certificates</title>
+<link rel="stylesheet" href="../static/certificate.css" >
+<style>
+  :root {
+      --bg-color: #f5f5f5;
+      --text-color: #222;
+      --card-bg: #fff;
+      --accent: #5e3bee;
+    }
+
+body.dark {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: #1e1e1e;
+      --accent: #5e3bee;
+    }
+  /* 🎓 Certificate Slider Section */
+  .certificate-slider {
+    text-align: center;
+    padding: 60px 0;
+    background: var(--card-bg);
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease;
+  }
+  body.dark-mode .certificate-slider {
+    background: var(--card-bg);
+    background-color: var(--card-bg);
+  }
+  .certificate-slider h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+  }
+  /* 🖼️ Slider Container */
+  .slider-container {
+    background: var(--card-bg);
+    position: relative;
+    max-width: 850px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    margin-left: 80px;
+  }
+  .slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    }
+
+    /* 🖼️ Image Auto Frame */
+    .slide img {
+      width: 100%;
+      max-height: 550px;  /* Controls frame height */
+      object-fit: contain; /* Keeps image aspect ratio (no stretch) */
+      border-radius: 15px;
+      display: block;
+      background-color: #fff;
+      padding: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .slide img:hover {
+      transform: scale(1.02);
+    }
+
+ /* 💬 Certificate Description (Fixed position & smooth fade) */
+ .descriptions{
+  min-width: 100%;
+  box-sizing: border-box;
+  
+
+ }
+.certificate-description {
+  position: absolute;
+  bottom: 120px; /* Keep consistent space below slider */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 650px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: var(--text-color, #333);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  text-align: center;
+  pointer-events: none; /* Prevent any accidental hover/move issues */
+  background-color: rgb(66, 204, 204);
+  margin-left: 450px;
+  padding: 10px;
+  
+}
+
+.certificate-description.active {
+  opacity: 5;
+}
+
+/* Make the section container relative so desc stays below */
+.certificate-slider {
+  position: relative;
+  display: flex;
+  text-align: center;
+  padding: 60px 0 120px; /* Add bottom space for desc */
+}
+
+   /* ⬅️➡️ Buttons */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      font-size: 26px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      z-index: 10;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    /* ⚙️ Responsive */
+    @media (max-width: 768px) {
+      .slider-container {
+        padding: 0px 0px;
+        margin-left: 5px;
+        max-width: 95%;
+      }
+
+      .slide img {
+        max-height: 380px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide img {
+        max-height: 300px;
+      }
+    }
+/* ⚙️ RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .slide img {
+    max-height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .nav ul {
+    gap: 15px;
+  }
+  .slide img {
+    max-height: 380px;
+  }
+  .certificate-description {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  .slide img {
+    max-height: 330px;
+    margin-left: 0px;
+  }
+  .slides{
+    margin-left: 10px;
+    padding: 0px 0px;
+  }
+  .certificate-description {
+    font-size: 1em;
+    padding: 90px 45px;
+    margin-left: 0px;
+  }
+  .prev, .next {
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Certificate</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="../template/index.html#home">Home</a></li>
+        <li><a href="../template/index.html#skills">Skills</a></li>
+        <li><a href="../template/project.html">Project's</a></li>
+        <li><a href="../template/index.html#services">Internships</a></li>
+        <li><a href="../template/cerificate.html">Certificate's</a></li>
+        <li><a href="../template/index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header> 
+
+  <!-- 🎓 Certificate Slideshow -->
+  <section class="certificate-slider">
+    <div class="slider-container">
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <div class="slides">
+        <div class="slide" id="Certificate-1">
+          <img src="../ceritificate/1-26c0fd33-86b1-4bee-ae49-101e7bdc879f_page-0001.jpg" alt="Certificate 1">
+        </div>
+        <div class="slide" id="Certificate-2">
+          <img src="../ceritificate/AICTE-PRAG- CERTIFICATE_page-0001.jpg" alt="Certificate 2">
+        </div>
+        <div class="slide" id="Certificate-3">
+          <img src="../ceritificate/Coursera 0H2CDJI12Y0Q IBM_page-0001.jpg" alt="Certificate 3">
+        </div>
+        <div class="slide" id="Certificate-4">
+          <img src="../ceritificate/NSIC- CERTIFICATE_page-0001.jpg" alt="Certificate 4">
+        </div>
+        <div class="slide" id="Certificate-5">
+          <img src="../ceritificate/SWAAS INTERNSHIP (2)_page-0001.jpg" alt="Certificate 5">
+        </div>
+        <div class="slide" id="Certificate-6">
+          <img src="../ceritificate/ZOHO Creator - certificate_page-0001.jpg" alt="Certificate 6">
+        </div>
+      </div>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+   <div class="slider-2">
+    <span>
+      <span>
+
+      </span>
+    </span>
+   </div> 
+</section>
+<section class="down">
+  <div class="slider-2">
+    <span>
+      <span>
+
+      </span>
+    </span>
+   </div>
+    <!-- 🎯 Certificate Descriptions -->
+    <div class="descriptions">
+  <div class="certificate-description" id="desc-1">Course Completion Certificate on Object Oriented Programming using Python Offered by Infosys.</div>
+  <div class="certificate-description" id="desc-2">Awarded by AICTE-PRAG Robotics for Internship project on Data Science for predict the Used car price. </div>
+  <div class="certificate-description" id="desc-3">Successfully completed IBM’s Coursera certification on “Python for Data Science,AI & Development.” gaining strong fundamentals in data science and ML concepts.</div>
+  <div class="certificate-description" id="desc-4">Certified by NSIC for Online upskilling Program on "Data Science And Machine Learning". </div>
+  <div class="certificate-description" id="desc-5">Internship at SWAAS Systems Private Limited focusing on Python development internship in Data Manipulation and Machine Learning.</div>
+  <div class="certificate-description" id="desc-6">ZOHO Creator certification earned for building workflow and Forms using no-code/low-code platforms(Zoho Creator).</div>
+</div>
+</section>
+  
+
+  <!-- ⚙️ JavaScript -->
+  <script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll(".slide");
+      const descriptions = document.querySelectorAll(".certificate-description");
+
+      if (index >= slides.length) currentSlide = 0;
+      else if (index < 0) currentSlide = slides.length - 1;
+      else currentSlide = index;
+
+      const offset = -currentSlide * 100;
+      document.querySelector(".slides").style.transform = `translateX(${offset}%)`;
+
+      // Animate the matching description
+      descriptions.forEach((desc, i) => {
+        if (i === currentSlide) desc.classList.add("active");
+        else desc.classList.remove("active");
+      });
+    }
+
+    function moveSlide(step) {
+      showSlide(currentSlide + step);
+    }
+
+    // Initialize first slide
+    showSlide(0);
+
+    // Optional auto slide
+    // setInterval(() => moveSlide(1), 4000);
+  </script>
+
+  <script src="../script/darkmode.js"></script>
+</body>
+</html>
