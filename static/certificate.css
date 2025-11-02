@@ -108,7 +108,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 60px;;
+  padding: 10px 60px;
   flex-wrap: wrap;
   background: var(--bg);
   color: var(--text);
